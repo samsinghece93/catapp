@@ -1,0 +1,23 @@
+apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: imagepolicies.securityenforcement.admission.cloud.ibm.com
+spec:
+   repositories:
+    - name: https://github.com/samsinghece93/catapp/*
+      policy:
+        va:
+          enabled: false
+    - name: image-registry.openshift-image-registry.svc:5000/*
+      policy:
+        va:
+          enabled: false
+    - name: image-registry.openshift-image-registry.svc:5000/catapp/catapp:master
+      policy:
+        va:
+          enabled: false
+    - name: image-registry.openshift-image-registry.svc:5000/catapp/catapp:/*
+      policy:
+        va:
+          enabled: false
+
